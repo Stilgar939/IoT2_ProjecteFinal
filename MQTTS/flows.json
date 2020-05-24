@@ -1,0 +1,1 @@
+[{"id":"7e4770ec.148ba","type":"function","z":"93404a44.325238","name":"TOPIC_ALL -->","func":"var topic = String(msg.topic)\nvar topic_All = flow.get(\"TOPIC_READ_ALL\")\n\nif (topic === topic_All){\n   return msg;\n}\n","outputs":1,"noerr":0,"x":620,"y":260,"wires":[["836a5dda.361e1","f9266b03.754668"]]}]
