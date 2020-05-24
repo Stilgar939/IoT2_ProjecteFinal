@@ -21,5 +21,7 @@
 #define TOPIC_MEDIUM_TEXT "/16pxTxt"
 #define TOPIC_BIG_TEXT "/24pxTxt"
 #define TOPIC_READ_ALL "/ReadAll"
+#define TOPIC_REQ_ALL "/ReqAll"
+
 
 #endif // IOT_02_MQTT_TOPICS

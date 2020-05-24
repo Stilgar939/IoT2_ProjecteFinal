@@ -73,7 +73,7 @@ void vSupervisingButtons() {
 }
 
 void receivedCallback(char* topic, byte* payload, unsigned int length) {
-  float fTc;
+  float fTc, fP, fRH;
 
   String szTopic = String(topic), szPayload = "";
   Serial.print("Topic: ");
@@ -156,18 +156,14 @@ void receivedCallback(char* topic, byte* payload, unsigned int length) {
     Serial.print("Small text: "); Serial.println(szPayload);
     vScreen10pixelText(0, 30, szPayload);
   }  
-  if (szTopic == String("/" + String(sMac) + TOPIC_READ_ALL).c_str()) {
-  float fTf, fP, fRH;
-  int nTx100, nPx100, nRHx100, nAx100, nGr;
-
-  vReadingBME280(&nTx100,&nPx100,&nRHx100,&nGr,&nAx100);
-  fTc = ((float)nTx100)/100; fP = ((float)nPx100)/100; fRH = ((float)nRHx100)/100;
+  if (szTopic == String("/" + String(sMac) + TOPIC_REQ_ALL).c_str()) {
+  
+  fTc = ((float)nTx100_bme())/100; fP = ((float)nPx100_bme())/100; fRH = ((float)nRHx100_bme())/100;
   String val = String(fTc) + "," + String(fP) + "," + String(fRH);
   //Checkear esto correctamente
   Serial.println(val);
   client.publish( String("/" + String(sMac) + TOPIC_READ_ALL).c_str(), val.c_str());
   }
-
 }
 
 void mqttconnect() {
@@ -194,6 +190,7 @@ void mqttconnect() {
       client.subscribe(String("/" + String(sMac) + TOPIC_MEDIUM_TEXT).c_str());
       client.subscribe(String("/" + String(sMac) + TOPIC_BIG_TEXT).c_str());
       client.subscribe(String("/" + String(sMac) + TOPIC_READ_ALL).c_str());
+      client.subscribe(String("/" + String(sMac) + TOPIC_REQ_ALL).c_str());
     } else {
       Serial.print("failed, status code =");
       Serial.print(client.state());
