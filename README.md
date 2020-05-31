@@ -1,5 +1,3 @@
-Falta 1.2, 2.3 (Snap)
-
 
 http://iotfinalprojectcv.wikidot.com/
 
