@@ -1,7 +1,5 @@
-// https://github.com/jordibinefa/IoT-02/tree/master/codes
-// things.cat
-//
-// Code written by Jordi Binefa. 20200511
+// Based on https://github.com/jordibinefa/IoT-02/tree/master/codes/IoT-02_mqtts_09
+
 
 #include "IoT-02_pinout.h"
 #include "IoT-02_common.h"
