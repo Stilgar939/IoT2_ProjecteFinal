@@ -6,13 +6,8 @@
 #include <arduino_lmic.h>
 
 
-
-// https://github.com/jordibinefa/IoT-02/tree/master/codes
-// things.cat
-//
 // Based on https://github.com/jordibinefa/arduino-IDE-codes/tree/master/esp32_lorawan_ttnEsp32_ttgo_multichannel_02_icm00_10_iot02
-//
-// Code written by Jordi Binefa. 20200502
+
 
 #include "IoT-02_pinout.h"
 #include "IoT-02_common.h"
