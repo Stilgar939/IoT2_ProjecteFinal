@@ -6,7 +6,9 @@
 #include <arduino_lmic.h>
 
 
-// Based on https://github.com/jordibinefa/arduino-IDE-codes/tree/master/esp32_lorawan_ttnEsp32_ttgo_multichannel_02_icm00_10_iot02
+
+
+// Based on https://github.com/jordibinefa/IoT-02/tree/master/codes
 
 
 #include "IoT-02_pinout.h"
@@ -227,35 +229,6 @@ void onEvent(ev_t ev) {
       break;
     case EV_JOINING:
       Serial.println(F("[RFM95] EV_JOINING"));
-       {
-              u4_t netid = 0;
-              devaddr_t devaddr = 0;
-              u1_t nwkKey[16];
-              u1_t artKey[16];
-              LMIC_getSessionKeys(&netid, &devaddr, nwkKey, artKey);
-              Serial.print("netid: ");
-              Serial.println(netid, DEC);
-              Serial.print("devaddr: ");
-              Serial.println(devaddr, HEX);
-              Serial.print("AppSKey: ");
-              for (size_t i=0; i<sizeof(artKey); ++i) {
-                if (i != 0)
-                  Serial.print("-");
-                printHex2(artKey[i]);
-              }
-              Serial.println("");
-              Serial.print("NwkSKey: ");
-              for (size_t i=0; i<sizeof(nwkKey); ++i) {
-                      if (i != 0)
-                              Serial.print("-");
-                      printHex2(nwkKey[i]);
-              }
-              Serial.println();
-            }
-            // Disable link check validation (automatically enabled
-            // during join, but because slow data rates change max TX
-            // size, we don't use it in this example.
-            LMIC_setLinkCheckMode(0);
       break;
     case EV_JOINED:
       Serial.println(F("EV_JOINED"));

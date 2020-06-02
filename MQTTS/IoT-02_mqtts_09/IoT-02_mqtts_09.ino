@@ -1,4 +1,4 @@
-// Based on https://github.com/jordibinefa/IoT-02/tree/master/codes/IoT-02_mqtts_09
+//Based on https://github.com/jordibinefa/IoT-02/tree/master/codes/IoT-02_mqtts_09
 
 
 #include "IoT-02_pinout.h"
@@ -187,7 +187,6 @@ void mqttconnect() {
       client.subscribe(String("/" + String(sMac) + TOPIC_SMALL_TEXT).c_str());
       client.subscribe(String("/" + String(sMac) + TOPIC_MEDIUM_TEXT).c_str());
       client.subscribe(String("/" + String(sMac) + TOPIC_BIG_TEXT).c_str());
-      client.subscribe(String("/" + String(sMac) + TOPIC_READ_ALL).c_str());
       client.subscribe(String("/" + String(sMac) + TOPIC_REQ_ALL).c_str());
     } else {
       Serial.print("failed, status code =");
